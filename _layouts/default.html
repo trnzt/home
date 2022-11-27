@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include _head.html %}
+  <body>
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
+    {% include _header.html %}
+
+    <main id="main-content" role="main" class="margin-bottom-9">
+      {{ content }}
+    </main>
+
+    {% include _footer.html %}
+
+    <script src="{{ site.baseurl }}/assets/uswds/js/uswds.min.js"></script>
+  </body>
+</html>

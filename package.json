@@ -1,0 +1,27 @@
+{
+  "name": "trnzt-home",
+  "version": "0.0.0",
+  "description": "trnzt.com",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build-sass & bundle exec jekyll build",
+    "serve": "gulp watch & bundle exec jekyll serve --livereload",
+    "start": "npm run serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trnzt/home.git"
+  },
+  "author": "Daniel James <daniel@thzinc.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trnzt/home/issues"
+  },
+  "homepage": "https://github.com/trnzt/home#readme",
+  "dependencies": {
+    "@uswds/uswds": "^3.3.0"
+  },
+  "devDependencies": {
+    "@uswds/compile": "^1.0.0-beta.3"
+  }
+}
