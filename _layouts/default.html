@@ -7,7 +7,34 @@
     {% include _header.html %}
 
     <main id="main-content" role="main" class="margin-bottom-9">
-      {{ content }}
+      {% if page.breadcrumbs %}
+      <div class="usa-nav-container">
+        <nav class="usa-breadcrumb" aria-label="Breadcrumbs">
+          <ol class="usa-breadcrumb__list">
+            <li class="usa-breadcrumb__list-item">
+              <a href="{% link pages/home.html %}" class="usa-breadcrumb__link"
+                ><span>Home</span></a
+              >
+            </li>
+            {% for breadcrumbPath in page.breadcrumbs %} {% assign breadcrumb =
+            site.pages | where: "path", breadcrumbPath | first %}
+            <li class="usa-breadcrumb__list-item">
+              <a href="{{breadcrumb.url}}" class="usa-breadcrumb__link"
+                ><span>{{breadcrumb.title}}</span></a
+              >
+            </li>
+            {% endfor %}
+            <li
+              class="usa-breadcrumb__list-item usa-current"
+              aria-current="page"
+            >
+              <span>{{page.title}}</span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      {% endif %} {{ content }}
     </main>
 
     {% include _footer.html %}

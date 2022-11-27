@@ -1,0 +1,59 @@
+---
+layout: default
+permalink: /agencies
+title: Agencies by country
+breadcrumbs: true
+---
+
+<section class="grid-container">
+  <h1>Agencies by country</h1>
+</section>
+{% include _map.html %}
+<section class="grid-container usa-section">
+  <h2>Data</h2>
+  <div class="usa-alert usa-alert--warning">
+    <div class="usa-alert__body">
+      <h4 class="usa-alert__heading">Drill-down links do not yet work</h4>
+      <p class="usa-alert__text">Still working on this one... – Daniel</p>
+    </div>
+  </div>
+
+  <script type="text/json" id="agencies_by_country">
+    {{site.data.agencies_by_country | jsonify}}
+  </script>
+  <div class="usa-table-container--scrollable">
+    <table class="usa-table usa-table--borderless">
+      <caption>
+        List of countries for which agency data is available.
+      </caption>
+      <thead>
+        <tr>
+          <th data-sortable scope="col" role="columnheader">Country code</th>
+          <th data-sortable scope="col" role="columnheader">Country name</th>
+          <th data-sortable scope="col" role="columnheader">
+            Count of agencies
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for country in site.data.agencies_by_country %}
+        <tr>
+          <th scope="row" data-sort-value="{{country.code}}">
+            <a class="usa-link" href="/agencies/{{country.code}}"
+              >{{country.code}}</a
+            >
+          </th>
+          <td data-sort-value="{{country.name}}">
+            <a class="usa-link" href="/agencies/{{country.code}}"
+              >{{country.name}}</a
+            >
+          </td>
+          <td data-sort-value="{{country.agency_count}}">
+            {{country.agency_count}}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "gulp build-sass & bundle exec jekyll build",
     "serve": "gulp watch & bundle exec jekyll serve --livereload --drafts",
-    "start": "npm run serve"
+    "start": "npm run serve",
+    "generate_agencies": "node .build/agencies.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "@uswds/uswds": "^3.3.0"
   },
   "devDependencies": {
-    "@uswds/compile": "^1.0.0-beta.3"
+    "@uswds/compile": "^1.0.0-beta.3",
+    "i18n-iso-countries": "^7.5.0"
   }
 }
