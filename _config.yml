@@ -1,3 +1,5 @@
+google:
+  api_key: AIzaSyCHHFNX99565xWe1vLOpxean3ZVoCWn-Gs
 defaults:
   - scope:
       path: ""

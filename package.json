@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp build-sass & bundle exec jekyll build",
-    "serve": "gulp watch & bundle exec jekyll serve --livereload",
+    "serve": "gulp watch & bundle exec jekyll serve --livereload --drafts",
     "start": "npm run serve"
   },
   "repository": {
