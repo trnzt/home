@@ -1,3 +1,9 @@
+title: trnzt
+description: a site for digging into data on transit systems around the world
+author: trnzt
+timezone: America/Los_Angeles
+baseurl: ""
+url: https://trnzt.com
 google:
   api_key: AIzaSyCHHFNX99565xWe1vLOpxean3ZVoCWn-Gs
 defaults:
@@ -6,3 +12,5 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+plugins:
+  - jekyll-sitemap
