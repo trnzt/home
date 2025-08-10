@@ -31,7 +31,7 @@ jobs:
             type=ref,event=pr
             type=sha
       - name: Read Dockerfile
-        uses: https://github.com/andstor/file-reader-action/tree/master/src
+        uses: https://github.com/andstor/file-reader-action@v1
         with:
           path: Dockerfile
       - uses: https://codeberg.org/thzinc/forgejo-kaniko-action@v2
