@@ -35,7 +35,7 @@ jobs:
         uses: https://github.com/andstor/file-reader-action@v1
         with:
           path: Dockerfile
-      - uses: https://codeberg.org/thzinc/forgejo-kaniko-action@1b898021b98d92f5bbdf4ba99210c6c408c3e185
+      - uses: https://codeberg.org/thzinc/forgejo-kaniko-action@25ae1ff06260453e3466c64a49e74f127d34e977
         with:
           dockerfile: ${{ steps.dockerfile.outputs.contents }}
           image: ${{ steps.meta.outputs.tags }}
