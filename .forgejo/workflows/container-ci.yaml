@@ -1,4 +1,4 @@
-name: Create and publish trnzt-home
+name: Create and publish trnzt/home
 on:
   push:
     branches: ["main"]
@@ -35,7 +35,8 @@ jobs:
         uses: https://github.com/andstor/file-reader-action@v1
         with:
           path: Dockerfile
-      - uses: https://codeberg.org/thzinc/forgejo-kaniko-action@26a8d6bf68f557eb4875c1c5e798d70ad4da0472
+      - name: Build image
+        uses: https://codeberg.org/thzinc/forgejo-kaniko-action@v2
         with:
           dockerfile: ${{ steps.dockerfile.outputs.contents }}
           image: ${{ steps.meta.outputs.tags }}
