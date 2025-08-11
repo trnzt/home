@@ -9,7 +9,7 @@ env:
 
 jobs:
   build-and-push-image:
-    runs-on: docker
+    runs-on: codeberg-small
     permissions:
       contents: read
       packages: write
