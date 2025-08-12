@@ -13,7 +13,7 @@ steps:
         semver --format {{version}}
         cron --format nightly-%Y%m%d
         sha
-  - name: build_image
+  - name: build_image_plz
     image: woodpeckerci/plugin-docker-buildx
     settings:
       repo: trnzt/home
