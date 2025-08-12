@@ -2,23 +2,24 @@ when:
   - event: push
     branch: main
 steps:
-  - name: generate_docker_tags
-    image: ghcr.io/dvjn/woodpecker-docker-tags-plugin
-    settings:
-      tags: |
-        edge
-        pr
-        semver --format {{major}}
-        semver --format {{major}}.{{minor}}
-        semver --format {{version}}
-        cron --format nightly-%Y%m%d
-        sha
+  # - name: generate_docker_tags
+  #   image: ghcr.io/dvjn/woodpecker-docker-tags-plugin
+  #   settings:
+  #     tags: |
+  #       edge
+  #       pr
+  #       semver --format {{major}}
+  #       semver --format {{major}}.{{minor}}
+  #       semver --format {{version}}
+  #       cron --format nightly-%Y%m%d
+  #       sha
   - name: build_image_plz
     image: woodpeckerci/plugin-docker-buildx
     settings:
       repo: trnzt/home
       dockerfile: Dockerfile
       platforms: linux/amd64,linux/arm64/v8
+      auto_tag: true
       username:
         from_secret: codeberg_package_username
       password:
