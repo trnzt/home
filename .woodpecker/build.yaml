@@ -2,10 +2,9 @@ when:
   - event: push
     branch: main
 steps:
-  - name: install_jekyll
-    image: ruby:3.1.7
+  - name: build_site
+    image: codeberg.org/thzinc/jekyll:ruby-3.3.9-ghp-232
     commands:
-      - gem install bundler jekyll
       - bundle install
       - bundle exec jekyll build
   - name: build_image
@@ -14,7 +13,7 @@ steps:
       repo: codeberg.org/trnzt/home
       registry: codeberg.org
       dockerfile: Dockerfile
-      platforms: linux/amd64,linux/arm64/v8
+      platforms: linux/arm64/v8
       auto_tag: true
       username:
         from_secret: codeberg_package_username
