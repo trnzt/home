@@ -8,7 +8,7 @@ steps:
       - bundle install
       - bundle exec jekyll build
   - name: build_image
-    image: woodpeckerci/plugin-docker-buildx
+    image: woodpeckerci/plugin-kaniko
     settings:
       repo: codeberg.org/trnzt/home
       registry: codeberg.org
