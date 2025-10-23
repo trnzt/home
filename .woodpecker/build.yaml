@@ -19,4 +19,3 @@ steps:
         from_secret: codeberg_package_username
       password:
         from_secret: codeberg_package_password
-# blah
