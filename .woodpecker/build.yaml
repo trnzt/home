@@ -10,7 +10,7 @@ steps:
   - name: build_image
     image: woodpeckerci/plugin-kaniko
     settings:
-      repo: codeberg.org/trnzt/home
+      repo: trnzt/home
       registry: codeberg.org
       dockerfile: Dockerfile
       platforms: linux/arm64/v8
