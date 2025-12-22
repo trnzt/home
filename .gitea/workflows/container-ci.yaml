@@ -5,12 +5,12 @@ on:
     tags:
       - "v*"
 env:
-  REGISTRY: codeberg.org
+  REGISTRY: gitea-http.gitea.svc.cluster.local
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-push-image:
-    runs-on: codeberg-small
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
