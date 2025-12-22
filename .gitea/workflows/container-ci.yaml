@@ -38,6 +38,19 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ secrets.PACKAGES_USERNAME }}
           password: ${{ secrets.PACKAGES_TOKEN }}
+
+      - name: Create Kubeconfig
+        run: |
+          mkdir $HOME/.kube
+          echo "${{ secrets.KUBECONFIG_BUILDX }}" > $HOME/.kube/config
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver: kubernetes
+          driver-opts: |
+            namespace=buildx-builders
+            qemu.install=true
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
