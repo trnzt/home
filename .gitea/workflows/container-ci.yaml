@@ -5,7 +5,7 @@ on:
     tags:
       - "v*"
 env:
-  REGISTRY: gitea-http.gitea.svc.cluster.local:3000
+  REGISTRY: gitea.tailcc814c.ts.net
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
