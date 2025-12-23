@@ -1,7 +1,7 @@
-FROM ruby:3.3.9 AS build
-RUN gem install bundler jekyll
-
+ARG BUILDER_REGISTRY=codeberg.org
+FROM $BUILDER_REGISTRY/thzinc/jekyll:0.1.1-ruby-3.3.9-ghp-232 AS build
 WORKDIR /build
+
 COPY Gemfile .
 COPY Gemfile.lock .
 RUN bundle install

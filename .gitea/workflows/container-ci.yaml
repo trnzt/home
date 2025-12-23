@@ -20,7 +20,9 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ vars.PACKAGES_REGISTRY }}/${{ github.repository }}
+          images: |
+            ${{ vars.PACKAGES_REGISTRY }}/${{ github.repository }}
+            codeberg.org/${{ github.repository }}
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
@@ -28,14 +30,20 @@ jobs:
             type=ref,event=branch
             type=ref,event=pr
             type=sha
-      - name: Login to DockerHub
+      - name: Login to local OCI registry
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
           registry: ${{ vars.PACKAGES_REGISTRY }}
           username: ${{ secrets.PACKAGES_USERNAME }}
           password: ${{ secrets.PACKAGES_TOKEN }}
-
+      - name: Login to Codeberg
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: codeberg.org
+          username: ${{ secrets.CODEBERG_PACKAGES_USERNAME }}
+          password: ${{ secrets.CODEBERG_PACKAGES_TOKEN }}
       - name: Create Kubeconfig
         run: |
           mkdir $HOME/.kube
@@ -47,7 +55,6 @@ jobs:
           driver-opts: |
             namespace=buildx-builders
             qemu.install=true
-
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
@@ -55,3 +62,5 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            BUILDER_REGISTRY=${{ vars.PACKAGES_REGISTRY }}
