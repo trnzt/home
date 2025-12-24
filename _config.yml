@@ -14,3 +14,12 @@ defaults:
       layout: "post"
 plugins:
   - jekyll-sitemap
+exclude:
+  - charts/
+  - CNAME
+  - Dockerfile
+  - gulpfile.js
+  - nginx.conf
+  - package-lock.json
+  - package.json
+  - scss/

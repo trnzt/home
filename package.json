@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trnzt/home.git"
+    "url": "git+https://codeberg.org/trnzt/home.git"
   },
   "author": "Daniel James <daniel@thzinc.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/trnzt/home/issues"
+    "url": "https://codeberg.org/trnzt/home/issues"
   },
-  "homepage": "https://github.com/trnzt/home#readme",
+  "homepage": "https://trnzt.com",
   "dependencies": {
     "@uswds/uswds": "^3.3.0"
   },

@@ -14,11 +14,11 @@ important part of addressing the [climate emergency][unep], and helping to explo
 
 The data presented here is the result of aggregating transit agency's [GTFS] data, identified in [The Mobility Database][mobilitydatabasecatalog]. For each transit agency listed, there's a process to download and parse the GTFS data and transform it into pages on this site.
 
-The tools used to produce this data are all available as open source software hosted on [GitHub][github].
+The tools used to produce this data are all available as open source software hosted on [Codeberg][codeberg].
 
 </section>
 
 [unep]: https://www.unep.org/facts-about-climate-emergency
 [gtfs]: https://gtfs.org/
 [mobilitydatabasecatalog]: https://database.mobilitydata.org/
-[github]: https://github.com/trnzt
+[codeberg]: https://codeberg.org/trnzt
